@@ -13,6 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/produtos/{idProduct?}', function($idProduct = '') {
+    return "Produto: ${idProduct}";
+});
+
+Route::get('/categoria/{prm1}/posts', function($prm1) {
+    return "Posts da categoria: ${prm1}";
+});
+
+Route::get('/categorias/{flag}', function($flag) {
+    return "Produtos da categoria: ${flag}";
+});
+
+Route::match(['get', 'post'], '/match', function() {
+    return 'match';
+});
+
+Route::any('/any', function() {
+    return 'any';
+});
+
+Route::get('/empresa', function() {
+    return 'Empresa';
+});
+
 Route::get('/', function () {
-    return view('welcome');
+    return 'ola';
+});
+
+Route::get('/contato', function() {
+    return view('contact');
 });
