@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/products', 'ProductController@index')->name('produtcs.index');
+
 Route::get('/login', function() {
     return 'login';
 })->name('login');
