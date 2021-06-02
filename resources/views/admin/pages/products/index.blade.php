@@ -5,6 +5,19 @@
 @section('content')
     <h1>Exibindo produtos</h1>
 
+    @component('admin.components.card')
+        @slot('title')
+            <h1>Titulo slot</h1>
+        @endslot
+        um card de exemp
+    @endcomponent
+
+    <hr>
+
+    @include('admin.includes.alerts', ['content' => 'Promoção'])
+
+    <hr>
+
     <h2>Estruturas de repetição</h2>
 
     @if(isset($teste3))
@@ -80,6 +93,8 @@
 @endsection
 
 
-<style>
-    .last {background: red;}
-</style>
+@push('styles')
+    <style>
+        .last {background: red;}
+    </style>
+@endpush
