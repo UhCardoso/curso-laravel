@@ -5,50 +5,69 @@
 @section('content')
     <h1>Exibindo produtos</h1>
 
+    <h2>Estruturas de repetição</h2>
+
+    @if(isset($teste3))
+        @foreach ( $products as $product)
+            <p class="@if($loop->last) last @endif">{{$product}}</p>
+        @endforeach
+    @endif
+
+    <hr>
+
+    @forelse($products as $product)
+    <p class="@if($loop->first) last @endif">{{$product}}</p>
+    @empty
+        <p>Não existem produtos cadastrados</p>
+    @endforelse
+
+    <hr>
+
+    <h2>Estruturas de controle</h2>
     @if($teste === '123')
-        É igual
+        <p>É igual</p>
     @elseif($teste == 123)
-        não é do msm tipo
+        <p>não é do msm tipo</p>
     @else
-        não é igual
+        <p>não é igual</p>
     @endif
 
 
     @unless($teste == 123)
-        fdsdf
+        <p>fdsdf</p>
     @else
-        sdfdsf
+        <p>sdfdsf</p>
     @endunless
 
 
     @isset($teste2)
-        {{$teste2}}
+        <p>{{$teste2}}</p>
     @else
-        vazio
+        <p>vazio</p>
     @endisset
 
 
 
     @empty($teste3)
-        vazio
+        <p>vazio</p>
     @else
-        nao vazio
+        <p>nao vazio</p>
     @endempty
 
 
     @auth
-        Autenticado
+        <p>Autenticado</p>
     @else
-        não autenticado
+        <p>não autenticado</p>
     @endauth
 
 
     @guest
-        não autenticado
+        <p>não autenticado</p>
     @endguest
 
 
-    @switch($type)
+    @switch($teste)
         @case(1)
 
             @break
@@ -59,3 +78,8 @@
 
     @endswitch
 @endsection
+
+
+<style>
+    .last {background: red;}
+</style>
